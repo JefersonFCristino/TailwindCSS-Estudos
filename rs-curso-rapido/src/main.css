@@ -1,0 +1,35 @@
+@tailwind base;
+
+/* podemos criar classes personalizadas. para buildar elas, rodamos no terminal o comando npx tailwindcss build "src/main.css" -o "src/style.css" */
+
+/* Para dimunir o tamanho do nosso css final também ultilizamnos o postcss e cssnano 
+
+    foram usados os seguintes comandos:
+        primeiro para instalar o postcss globalmente: npm i -g postcss-cli
+        segundo: npm i postcss cssnano @fullhuman/postcss-purgecss -D
+    .
+
+    Vamos tirar o CSS não utilizado
+
+    Fomos no nosso "packege.json" e criamos esse script: 
+        build:css": "postcss src/style.css -o src/prod.css"
+    .
+
+    Com isso, um arquivo que antes era de 1.062 KB foi para 4 KB
+
+*/
+
+.btn {
+    @apply outline-none py-2 px-4 text-white font-semibold rounded-md;
+}
+
+.btn-teal {
+    @apply bg-teal-500;
+}
+
+.btn-teal:hover {
+    @apply bg-teal-600;
+}
+
+@tailwind components;
+@tailwind utilities;
